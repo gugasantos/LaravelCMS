@@ -1,1 +1,1 @@
-PAGINA INICIAL DO ADMIN
+@extends('adminlte::page')

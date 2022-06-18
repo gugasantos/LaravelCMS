@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\Admin\Auth\RegisteredUserController;
+use App\Http\Controllers\Admin\HomeAController;
+use App\Http\Controllers\Site\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,12 +17,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', [HomeController::class, 'index']);
+
+
+Route::prefix('painel')->group(function(){
+    Route::get('/',[HomeAController::class, 'index'])->name('admin');
+
+    Route::get('login',[AuthenticatedSessionController::class, 'create'])->name('login');
+    Route::post('login',[AuthenticatedSessionController::class, 'store']);
+
+    Route::get('register',[RegisteredUserController::class, 'create'])->name('register');
+    Route::post('register',[RegisteredUserController::class, 'store']);
+
+    Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
+
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
-require __DIR__.'/auth.php';
