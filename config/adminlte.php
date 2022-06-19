@@ -9,8 +9,8 @@ return [
     |
     | Here you can change the default title of your admin panel.
     |
-    | For detailed instructions you can look the title section here:
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Basic-Configuration
+    | For detailed instructions you can look the title section here:
     |
     */
 
@@ -242,12 +242,17 @@ return [
             'can'         => 'edit-users'
         ],
 
-        ['header' => 'account_settings'],
+        ['header' => 'Configurações'],
         [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
+            'text' => 'Configurações do Site',
+            'url'  => 'painel/settings',
+            'icon' => 'fas fa-fw fa-file'
         ],
+        [
+            'text' => 'Meu perfil',
+            'url'  => 'painel/profile',
+            'icon' => 'fas fa-fw fa-user'
+        ]
 
     ],
 

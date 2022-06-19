@@ -151,7 +151,7 @@ class UserController extends Controller
             // 3.1 verifica se o usuário digitou senha
             if(!empty($data['password'])){
                 // confere se tem 4 caracteres
-                if(strlen($data['password'] >= 4)){
+                if(strlen($data['password']) >= 4){
                     // 3.2 verifica se a confirmação está ok
                     if($data['password'] === $data['password_confirmation']){
                     // 3.3 Altera a senha
